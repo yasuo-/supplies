@@ -1,0 +1,54 @@
+name: Backend CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+
+jobs:
+  test-and-build-backend:
+    runs-on: ubuntu-latest
+    name: Run backend tests and generate docs
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Install backend dependencies
+      run: |
+        cd backend
+        pip install poetry
+        poetry install
+
+    - name: Start FastAPI server
+      run: |
+        cd backend
+        uvicorn app.main:app --host 127.0.0.1 --port 8000 &
+
+    - name: Generate ERD
+      run: |
+        cd backend
+        ./scripts/generate_erd.sh
+
+    - name: Generate OpenAPI and ReDoc
+      run: |
+        cd backend
+        ./scripts/generate_openapi.sh
+        ./scripts/generate_redoc.sh
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs

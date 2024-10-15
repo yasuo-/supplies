@@ -1,0 +1,13 @@
+version: 2
+updates:
+  # backend の Python 依存関係管理
+  - package-ecosystem: "pip"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+
+  # frontend の Flutter 依存関係管理
+  - package-ecosystem: "pub"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
