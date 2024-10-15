@@ -1,0 +1,19 @@
+# idea
+.idea
+
+# vscode
+.vscode
+
+# misc
+node_modules/
+.DS_Store
+*.pem
+*.local
+coverage/
+
+# devbox
+.devbox/
+
+# python
+__pycache__/
+.venv/

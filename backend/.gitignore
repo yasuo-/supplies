@@ -1,0 +1,25 @@
+# idea
+.idea
+
+# vscode
+.vscode
+
+# misc
+node_modules/
+.DS_Store
+*.pem
+*.local
+coverage/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+*.pyi
+*.pyz
+*.pyw
+*.pyi
+.venv/
