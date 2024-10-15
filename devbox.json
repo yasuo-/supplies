@@ -9,11 +9,13 @@
   },
   "shell": {
     "init_hook": [
+      "cd backend", 
+      "poetry install",
       "poetry shell"
     ],
     "scripts": {
       "test": [
-        "echo \"Error: no test specified\" && exit 1"
+        "poetry run pytest"
       ]
     }
   }

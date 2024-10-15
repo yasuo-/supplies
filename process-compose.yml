@@ -2,6 +2,11 @@ version: "0.5"
 
 processes:
   backend:
-    command: python backend/manage.py runserver
+    command: poetry run uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
     availability:
       restart: "always"
+    env:
+      DATABASE_URL: "sqlite:///backend/test.db"   # データベース接続情報
+      APP_ENV: "development"                      # 開発環境の設定
+      PORT: 8000                                  # ポート設定
+    working_directory: ./backend
