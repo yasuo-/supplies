@@ -161,6 +161,27 @@ files = [
 toml = ["tomli"]
 
 [[package]]
+name = "eralchemy"
+version = "1.5.0"
+description = "Simple entity relation (ER) diagrams generation"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "eralchemy-1.5.0-py3-none-any.whl", hash = "sha256:c87099aa1a4ac313df690cbe4eb642b596a635fc6b578f7963ce9570994dccc8"},
+    {file = "eralchemy-1.5.0.tar.gz", hash = "sha256:fa66a3cd324abd27ad8e65908d7af48d8198c0c185aeb22189cf40516de25941"},
+]
+
+[package.dependencies]
+sqlalchemy = ">=1.4.18"
+
+[package.extras]
+dev = ["nox", "pre-commit"]
+docs = ["pydata-sphinx-theme", "sphinx (>=6.2.1)", "sphinx-copybutton", "sphinx-design"]
+graphviz = ["graphviz (>=0.20.3)"]
+pygraphviz = ["pygraphviz (>=1.9)"]
+test = ["flask-sqlalchemy (>=2.5.1)", "graphviz (>=0.20.3)", "psycopg2 (>=2.9.3)", "pygraphviz (>=1.9)", "pytest (>=7.4.3)", "pytest-cov"]
+
+[[package]]
 name = "fastapi"
 version = "0.115.2"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -831,4 +852,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "c79848037dd86b522182b8c8305f58df8d9825da98eddb427f0d693ee90f9d51"
+content-hash = "162402144dbac0b3a6026f7065f42758f6a820244e3e10e7f19ad4f259f9056d"
